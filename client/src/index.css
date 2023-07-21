@@ -1,3 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Raleway:wght@500&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+*{
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Raleway', sans-serif;
+}
+
+.App {
+    scroll-snap-type: y mandatory;
+}
+
+.splash{
+    scroll-snap-align: start;
+}
+
+.projects{
+    scroll-snap-type: start;
+}
+
+/* Scroll Animation CSS */
+
+  .arrows {
+      width: 60px;
+      height: 72px;
+  }
+  
+  .arrows path {
+      fill: transparent;
+      stroke-width: 1px;	
+      animation: arrow 2s infinite;
+      -webkit-animation: arrow 2s infinite; 
+  }
+  
+  @keyframes arrow
+  {
+  0% {opacity:0}
+  40% {opacity:1}
+  80% {opacity:0}
+  100% {opacity:0}
+  }
+  
+  @-webkit-keyframes arrow /*Safari and Chrome*/
+  {
+  0% {opacity:0}
+  40% {opacity:1}
+  80% {opacity:0}
+  100% {opacity:0}
+  }
+  
+  .arrows path.a1 {
+      animation-delay:-1s;
+      -webkit-animation-delay:-1s; /* Safari 和 Chrome */
+  }
+  
+  .arrows path.a2 {
+      animation-delay:-0.5s;
+      -webkit-animation-delay:-0.5s; /* Safari 和 Chrome */
+  }
+  
+  .arrows path.a3 {	
+      animation-delay:0s;
+      -webkit-animation-delay:0s; /* Safari 和 Chrome */
+  }
+
+/* End of Scroll animation CSS */

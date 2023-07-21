@@ -6,7 +6,7 @@ const port = process.env.PORT || 3000;
 const { getSkills, getRoles, getProjects, getEducation, getCerts, getAchievements, getAbout } = require('./notion')
 
 app.use(cors({
-    origin: ['http://localhost:5173, http://localhost:4173', 'https://vocarista.com', 'http://vocarista.com'],
+    origin: ['http://localhost:5173', 'http://localhost:4173', 'https://vocarista.com', 'http://vocarista.com'],
     method: ['POST', 'GET', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization']
 }));
@@ -48,6 +48,10 @@ app.get('/main/achievements', async (req, res) => {
 app.get('/main/about', async (req, res) => {
     const response = await getAbout();
     res.json(response);
+})
+
+app.get('/main/download', async (req, res) => {
+    res.download('./public/resume.pdf', 'Kumar_Piyush_resume.pdf')
 })
 
 app.listen(port, () => {

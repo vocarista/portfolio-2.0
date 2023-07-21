@@ -5,8 +5,19 @@ export default {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      screens: {
+        'sm': '480px',
+        'md': '800px',
+        'lg': '1200px'
+      },
+      backgroundImage: (theme) => ({
+        'gradient-to-r': 'linear-gradient(to right, var(--tw-gradient-stops))',
+      }),
+    },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/typography')
+  ],
 }
 

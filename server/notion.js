@@ -15,6 +15,7 @@ const getSkills = async () => {
     })
     // console.log(response.results[0].properties)
     return response.results.map((item) => ({
+        id: item.id,
         name: item.properties.skill_name.title[0].plain_text,
         icon: item.properties.icon.url ? item.properties.icon.url : ``,
     }))
@@ -27,6 +28,7 @@ const getRoles = async () => {
 
     // console.log(response.results[0].properties.desc.rich_text)
     return response.results.map(item => ({
+        id: item.id,
         name: item.properties.role_name.title[0].plain_text,
         employer: item.properties.employer.rich_text[0].plain_text,
         icon: item.properties.icon.url ? item.properties.icon.url : ``,
@@ -47,6 +49,7 @@ const getProjects = async () => {
     })
     // console.log(response.results[0].properties)
     return response.results.map(item => ({
+        id: item.id,
         name: item.properties.project_name.title[0].plain_text,
         url: item.properties.url.url ? item.properties.url.url : '',
         thumbnail: item.properties.thumbnail.url ? item.properties.thumbnail.url : '',
@@ -69,6 +72,7 @@ const getEducation = async () => {
 
     // console.log(response.results[0].properties)
     return response.results.map(item => ({
+        id: item.id,
         name: item.properties.institution_name.title[0].plain_text,
         degree: item.properties.degree.rich_text[0].plain_text,
         course: item.properties.course.rich_text[0] ? item.properties.course.rich_text[0].plain_text : '',
@@ -89,6 +93,7 @@ const getCerts = async () => {
         }]
     })
     return response.results.map(item => ({
+        id: item.id,
         name: item.properties.cert_name.title[0].plain_text,
         org_name: item.properties.org_name.rich_text[0].plain_text,
         date: item.properties.date.rich_text[0].plain_text,
@@ -102,6 +107,7 @@ const getAchievements = async () => {
     })
     if (response.results.length == 0) return [];
     return response.results.map(item => ({
+        id: item.id,
         name: item.properties.name.title[0].plain_text,
         desc: item.properties.desc.rich_text[0].plain_text,
         date: item.properties.date.date.start,
