@@ -99,18 +99,25 @@ const getCerts = async () => {
 const getAchievements = async () => {
     const response = await notion.databases.query({
         database_id: process.env.NOTION_ACHIEVEMENTS_KEY,
-        sorts: [{
-            property: 'date',
-            direction: 'descending'
-        }]
     })
-
+    if (response.results.length == 0) return [];
     return response.results.map(item => ({
         name: item.properties.name.title[0].plain_text,
         desc: item.properties.desc.rich_text[0].plain_text,
         date: item.properties.date.date.start,
         url: item.properties.url.url
     }))
+}
+
+const getAbout = async () => {
+    const response = await notion.databases.query({
+        database_id: process.env.NOTION_TEXTS_KEY,
+        filter: {
+            property: 'name',
+            title: {equals: 'About'}
+        }
+    })
+    return { about: response.results[0].properties.text.rich_text[0].plain_text };
 }
 
 module.exports = {
@@ -120,5 +127,5 @@ module.exports = {
     getEducation,
     getCerts,
     getAchievements,
-
+    getAbout,
 }

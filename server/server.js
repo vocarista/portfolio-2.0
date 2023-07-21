@@ -3,7 +3,7 @@ const app = express();
 const cors = require('cors');
 require('dotenv').config();
 const port = process.env.PORT || 3000;
-const { getSkills, getRoles, getProjects, getEducation, getCerts, getAchievements } = require('./notion')
+const { getSkills, getRoles, getProjects, getEducation, getCerts, getAchievements, getAbout } = require('./notion')
 
 app.use(cors({
     origin: ['http://localhost:5173, http://localhost:4173', 'https://vocarista.com', 'http://vocarista.com'],
@@ -40,10 +40,15 @@ app.get('/main/certs', async (req, res) => {
     res.json(response);
 })
 
-// app.get('/main/achievements', async (req, res) => {
-//     const response = await getAchievements();
-//     res.json(response);
-// })
+app.get('/main/achievements', async (req, res) => {
+    const response = await getAchievements();
+    res.json(response);
+})
+
+app.get('/main/about', async (req, res) => {
+    const response = await getAbout();
+    res.json(response);
+})
 
 app.listen(port, () => {
     console.log(`Server running at: http://localhost:${port}`);
