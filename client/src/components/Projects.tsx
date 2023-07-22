@@ -30,13 +30,14 @@ function Projects() {
         getProjects();
     }, [])
     return (
-        <div className = {`projects h-screen flex flex-col items-center` + ` ` + (selectedId ? `backdrop-filter backdrop-brightness-50` : `` )}>
+        <div className = {`projects h-screen flex flex-col items-center`}>
             <motion.div
             className = "projects-container grid sm:grid-cols-1 lg:grid-cols-3 gap-10 place-items-center">
                 {projects.map((project: Project) => {
-                    return <motion.div layoutId= { project.id } onClick={() => setSelectedId(project.id) } whileHover={{scale: 1.05}}
-                    className = { (isDark ? `bg-white text-black` : `bg-neutral-900 text-white`) + ` ` + `w-[400px] h-[225px] flex flex-col hover:outline hover:outline-4 hover:outline-blue-600` }>
-                        <motion.h1>{ project.name }</motion.h1>
+                    return <motion.div layoutId= { project.id } onClick={() => setSelectedId(project.id) } whileHover={{scale: 1.05}} whileTap={{scale: 1}}
+                    className = { (isDark ? `bg-white text-black` : `bg-neutral-900 text-white`) + ` ` + `w-[400px] h-[225px] flex flex-col hover:outline hover:outline-4 hover:outline-blue-600` + ` ` + (selectedId !== null ? `brightness-reduce` : ``)
+                    + ` ` + `rounded-xl text-left p-3`}>
+                        <motion.h1 className = {`text-xl font-bold`}>{ project.name }</motion.h1>
                     </motion.div>
                 })}
              </motion.div>
