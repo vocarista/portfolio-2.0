@@ -1,10 +1,9 @@
 // This scroll animation is not my own and belongs to the author = `junjun`. I found it at: https://csshint.com/html-css-scroll-down-arrow-examples/
 
-import React from 'react'
 import { useStore } from '../store/store'
 
 function ScrollAnimation() {
-    const isDark = useStore(state => state.isDark)
+    const isDark = useStore((state: any) => state.isDark)
     const strokeColor = isDark ? `white` : `black`;
     return (
         <svg className="arrows">

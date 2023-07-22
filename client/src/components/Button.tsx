@@ -1,10 +1,9 @@
-import React from 'react'
 import { useStore } from '../store/store'
 import { motion } from 'framer-motion';
 
-function Button(props) {
+function Button(props: any) {
     const { text, url } = props;
-    const isDark = useStore(state => state.isDark);
+    const isDark = useStore((state: any)=> state.isDark);
 
     return (
         <motion.div

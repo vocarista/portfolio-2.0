@@ -5,8 +5,8 @@ import Button from './Button';
 import ScrollAnimation from '../assets/ScrollAnimation';
 
 function Splash() {
-    const isDark = useStore(state => state.isDark);
-    const isMobile = useStore(state => state.isMobile);
+    const isDark = useStore((state: any) => state.isDark);
+    const isMobile = useStore((state: any) => state.isMobile);
 
     return (
         <div className= {`splash flex flex-col justify-center items-center ` + (isMobile ? `h-[70vh]` : `h-screen`)}>

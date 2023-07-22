@@ -18,7 +18,7 @@
 }
 
 .projects{
-    scroll-snap-type: start;
+    scroll-snap-align: start;
 }
 
 /* Scroll Animation CSS */

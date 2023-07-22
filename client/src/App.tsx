@@ -1,13 +1,11 @@
 import { useState, useEffect } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import { useStore } from './store/store'
-import Splash from './components/splash'
+import Splash from './components/Splash'
 import Projects from './components/Projects'
 
 function App() {
-  const toggleView = useStore(state => state.toggleView);
-  const isDark = useStore(state => state.isDark);
+  const toggleView = useStore((state: any) => state.toggleView);
+  const isDark = useStore((state: any) => state.isDark);
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth < 768) toggleView(true);
@@ -22,7 +20,7 @@ function App() {
   }, [])
 
   return (
-    <div className= { (isDark ? `bg-zinc-900` : `bg-neutral-200`) + ` App h-full` }>
+    <div className= { (isDark ? `bg-zinc-900` : `bg-white`) + ` App h-full` }>
       <Splash />
       <Projects />
     </div>
