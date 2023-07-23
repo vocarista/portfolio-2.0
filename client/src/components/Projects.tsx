@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { useStore } from '../store/store'
 
@@ -7,7 +7,7 @@ function Projects() {
     const isMobile = useStore((state: any) => state.isMobile)
     const [projects, setProjects] = useState([])
     const [selectedId, setSelectedId] = useState(null)
-    // const [selectedProject, setSelectedProject] = useState([])
+    const [selectedProject, setSelectedProject] = useState<Project>(projects[0])
 
     interface Project {
         id: any,
@@ -35,7 +35,9 @@ function Projects() {
             <motion.div
             className = "projects-container grid lg:grid-cols-3 gap-10 place-items-center">
                 {projects.map((project: Project) => {
-                    return <motion.div layoutId= { project.id } onClick={() => setSelectedId(project.id) } whileHover={{scale: 1.05}} whileTap={{scale: 1}}
+                    return <motion.div layoutId= { project.id } onClick={() => {
+                        setSelectedId(project.id)
+                        setSelectedProject(project)}} whileHover={{scale: 1.05}} whileTap={{scale: 1}}
                     className = {(isMobile ? `w-[368px] h-[198px]` : `w-[400px] h-[225px]` ) + ` ` + `flex flex-col hover:outline hover:outline-4 hover:outline-blue-600` + ` ` + (selectedId !== null ? `brightness-reduce` : ``)
                     + ` ` + `rounded-xl text-left p-3 bg-cover shadow-neutral-700 shadow-lg text-white`} style = {{backgroundImage: `linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.3)), url(${project.thumbnail})`}}>
                         <motion.h1 className = {`text-3xl font-bold`}>{ project.name }</motion.h1>
@@ -55,7 +57,7 @@ function Projects() {
                 {selectedId && (
                     <motion.div layoutId = {selectedId} className = {(isMobile ? `w-[384px] h-[216px] self-center` : `w-[640px] h-[360px]`) + ` ` + (isDark ? `bg-white text-black` : `bg-zinc-800 text-white`) + ` ` + `z-10 absolute`}
                     >
-                        <motion.h1> { projects.filter((project: Project) => project.id === selectedId)[0].name } </motion.h1>
+                        <motion.h1> { selectedProject.name } </motion.h1>
                         <motion.button onClick = {() => setSelectedId(null)}>x</motion.button>
                     </motion.div>
                 )}
