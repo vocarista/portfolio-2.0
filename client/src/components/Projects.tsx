@@ -22,7 +22,7 @@ function Projects() {
 
     useEffect(() => {
         async function getProjects() {
-            const response = await fetch('https://api.main.vocarista.com/main/projects');
+            const response = await fetch('https://api.main.vocarista.com/projects');
             const json = await response.json();
             // console.log(json)
             setProjects(json)

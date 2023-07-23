@@ -32,7 +32,7 @@ function Splash() {
                 animate = {{opacity: 1, scale: 1, y: 0}}
                 transition = {{duration: 0.6}}
                 className = "mt-8 text-5xl font-thin bg-gradient-to-r from-purple-600 to-blue-600 text-transparent bg-clip-text">{ `{ Learner, Dreamer, Developer }` }</motion.h1>
-                <Button text = {`Resume`} url = {`https://api.main.vocarista.com/main/download`} />
+                <Button text = {`Resume`} url = {`https://api.main.vocarista.com/download`} />
                 <ScrollAnimation />
             </motion.div>
         </div>
