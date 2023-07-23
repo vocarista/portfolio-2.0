@@ -92,7 +92,7 @@ app.get('/download', async (req, res) => {
 
 const pingServer = async () => {
     try {
-        await axios.get('https://api.main.vocarista.com/ping');
+        await axios.get('https://api.main.vocarista.com');
     } catch (error) {
         console.error('Error pinging the server:', error.message);
     }
