@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import { useStore } from './store/store'
 import Splash from './components/Splash'
 import Projects from './components/Projects'

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+
 import { useStore } from '../store/store'
 import { motion } from 'framer-motion';
 import Button from './Button';
