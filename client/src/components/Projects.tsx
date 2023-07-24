@@ -1,15 +1,17 @@
 import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { useStore } from '../store/store'
+import { useStore, } from '../store/store'
 import removeIcon from '../assets/remove.png'
 import ThemedButton from './ThemedButton'
 
 function Projects() {
     const isDark = useStore((state: any) => state.isDark)
     const isMobile = useStore((state: any) => state.isMobile)
+    // const setIsProjectsLoading = useStore((state: any) => state.setIsProjectsLoading)
     const [projects, setProjects] = useState([])
     const [selectedId, setSelectedId] = useState(null)
     const [selectedProject, setSelectedProject] = useState<Project>(projects[0])
+    const [isLoading, setIsLoading] = useState(true);
 
     interface Project {
         id: any,
@@ -23,20 +25,33 @@ function Projects() {
     }
 
     useEffect(() => {
+        console.log('Fetching projects...'); // Debugging statement
         async function getProjects() {
+          try {
             const response = await fetch('https://api.main.vocarista.com/projects');
             const json = await response.json();
-            // console.log(json)
-            setProjects(json)
+            setProjects(json);
+          } catch (error) {
+            console.error('Error fetching projects:', error);
+          } finally {
+            setIsLoading(false);
+          }
         }
         getProjects();
-    }, [])
+      }, []);
+
+      if (isLoading) {
+        return (<div className="flex items-center justify-center w-full h-full fixed top-0 left-0 bg-zinc-800 z-50">
+                 <div className = "loader"></div>
+                </div>)
+      }
+
     return (
-        <div className = {`projects h-full flex flex-col items-center`}>
-            <motion.h1 className = {(isMobile ? `text-4xl mb-10` : `text-7xl mb-20`) + ` ` + (isDark ? `text-white` : `text-black`) + ` ` + `font-bold`}>Projects</motion.h1>
+        <div className = {`projects h-full flex flex-col items-center pb-10`}>
+            <motion.h1 className = {(isMobile ? `text-5xl mb-10` : `text-7xl mb-20`) + ` ` + (isDark ? `text-white` : `text-black`) + ` ` + `font-bold`}>Projects</motion.h1>
             <motion.div
             className = "projects-container grid lg:grid-cols-3 gap-10 place-items-center">
-                {projects.map((project: Project) => {
+                {projects.map((project: Project, key: number) => {
                     return <motion.div layoutId= { project.id } onClick={() => {
                         setSelectedId(project.id)
                         setSelectedProject(project)}} whileHover={{scale: 1.05}} whileTap={{scale: 1}}
@@ -70,7 +85,7 @@ function Projects() {
                        <motion.div className= { `flex` + ` ` + (isMobile ? `flex-col` : `flex-row`) + ` ` }>
                         <motion.div className = { `mt-5 mr-5` }>
                             <motion.p className = { `w-80` }>{ selectedProject.desc }</motion.p>
-                            <motion.p className = { `w-80 mt-5` }>Tags: { selectedProject.tags.map((tag: string) => tag + `, `) }</motion.p>
+                            <motion.p className = { `w-80 mt-5` }>Tags: { selectedProject.tags.map((tag: string, key: number) => tag + `, `) }</motion.p>
                         </motion.div>
                         <motion.div>
                             <motion.img src = { selectedProject.thumbnail } className = { `w-[352px] h-[198] mt-5 shadow-lg rounded-xl shadow-neutral-700` }/>

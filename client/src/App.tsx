@@ -2,10 +2,15 @@ import { useEffect } from 'react'
 import { useStore } from './store/store'
 import Splash from './components/Splash'
 import Projects from './components/Projects'
+import Roles from './components/Roles'
+import Schools from './components/Schools'
 
 function App() {
   const toggleView = useStore((state: any) => state.toggleView);
   const isDark = useStore((state: any) => state.isDark);
+  const isProjectsLoading = useStore((state: any) => state.isProjectsLoading);
+  const isRolesLoading = useStore((state: any) => state.isRolesLoading);
+  const isSchoolsLoading = useStore((state: any) => state.isSchoolsLoading);
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth < 768) toggleView(true);
@@ -19,10 +24,18 @@ function App() {
     }
   }, [])
 
+  // if (isProjectsLoading || isRolesLoading || isSchoolsLoading) {
+  //   return (<div className="flex items-center justify-center w-full h-full fixed top-0 left-0 bg-zinc-800 z-50">
+  //            <div className = "loader"></div>
+  //           </div>)
+  // }
+
   return (
     <div className= { (isDark ? `bg-zinc-900` : `bg-white`) + ` App h-full` }>
       <Splash />
       <Projects />
+      <Roles />
+      <Schools />
     </div>
   )
 }
