@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { useStore } from '../store/store'
+import removeIcon from '../assets/remove.png'
+import ThemedButton from './ThemedButton'
 
 function Projects() {
     const isDark = useStore((state: any) => state.isDark)
@@ -39,7 +41,10 @@ function Projects() {
                         setSelectedId(project.id)
                         setSelectedProject(project)}} whileHover={{scale: 1.05}} whileTap={{scale: 1}}
                     className = {(isMobile ? `w-[368px] h-[198px]` : `w-[400px] h-[225px]` ) + ` ` + `flex flex-col hover:outline hover:outline-4 hover:outline-blue-600` + ` ` + (selectedId !== null ? `brightness-reduce` : ``)
-                    + ` ` + `rounded-xl text-left p-3 bg-cover shadow-neutral-700 shadow-lg text-white`} style = {{backgroundImage: `linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.3)), url(${project.thumbnail})`}}>
+                    + ` ` + `rounded-xl text-left p-3 bg-cover shadow-neutral-700 shadow-lg text-white`} style = {{backgroundImage: `linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.3)), url(${project.thumbnail})`}}
+                    initial = {{visibility: 'hidden', x: 200}}
+                    whileInView={{visibility: 'visible', x: 0}}
+                    viewport={{once: true}}>
                         <motion.h1 className = {`text-3xl font-bold`}>{ project.name }</motion.h1>
                         <motion.div className = "flex flex-row mt-2">
                             <motion.h1 className = {`font-thin text-xl text-gray-400`} >Last Updated: </motion.h1>
@@ -55,10 +60,25 @@ function Projects() {
              </motion.div>
              <AnimatePresence>
                 {selectedId && (
-                    <motion.div layoutId = {selectedId} className = {(isMobile ? `w-[384px] h-[216px] self-center` : `w-[640px] h-[360px]`) + ` ` + (isDark ? `bg-white text-black` : `bg-zinc-800 text-white`) + ` ` + `z-10 absolute`}
+                    <motion.div layoutId = {selectedId} className = {(isMobile ? `w-[368px] h-auto self-center centered-popup` : `w-[720px] h-[395px]`) + ` ` + (isDark ? `bg-white text-black` : `bg-zinc-800 text-white`) + ` ` + `z-10 absolute` + 
+                ` ` + `p-4 rounded-xl shadow-lg shadow-neutral-700 flex flex-col`}
                     >
-                        <motion.h1> { selectedProject.name } </motion.h1>
-                        <motion.button onClick = {() => setSelectedId(null)}>x</motion.button>
+                       <motion.div className = "flex">
+                        <motion.h1 className = "text-3xl font-bold flex-grow" >{ selectedProject.name} </motion.h1>
+                        <motion.img onClick = {() => setSelectedId(null)} src= { removeIcon } className={ `cursor-pointer h-8 hover:brightness-75` }/>
+                       </motion.div>
+                       <motion.div className= { `flex` + ` ` + (isMobile ? `flex-col` : `flex-row`) + ` ` }>
+                        <motion.div className = { `mt-5 mr-5` }>
+                            <motion.p className = { `w-80` }>{ selectedProject.desc }</motion.p>
+                            <motion.p className = { `w-80 mt-5` }>Tags: { selectedProject.tags.map((tag: string) => tag + `, `) }</motion.p>
+                        </motion.div>
+                        <motion.div>
+                            <motion.img src = { selectedProject.thumbnail } className = { `w-[352px] h-[198] mt-5 shadow-lg rounded-xl shadow-neutral-700` }/>
+                        </motion.div>
+                       </motion.div>
+                        <motion.div className="flex justify-center mt-5">
+                            <ThemedButton text={`Visit`} url={selectedProject.url} isDark={isDark ? false : true} />
+                        </motion.div>
                     </motion.div>
                 )}
             </AnimatePresence>
