@@ -8,9 +8,6 @@ import Schools from './components/Schools'
 function App() {
   const toggleView = useStore((state: any) => state.toggleView);
   const isDark = useStore((state: any) => state.isDark);
-  const isProjectsLoading = useStore((state: any) => state.isProjectsLoading);
-  const isRolesLoading = useStore((state: any) => state.isRolesLoading);
-  const isSchoolsLoading = useStore((state: any) => state.isSchoolsLoading);
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth < 768) toggleView(true);
