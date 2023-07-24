@@ -25,7 +25,6 @@ function Projects() {
     }
 
     useEffect(() => {
-        console.log('Fetching projects...'); // Debugging statement
         async function getProjects() {
           try {
             const response = await fetch('https://api.main.vocarista.com/projects');
@@ -51,7 +50,7 @@ function Projects() {
             <motion.h1 className = {(isMobile ? `text-5xl mb-10` : `text-7xl mb-20`) + ` ` + (isDark ? `text-white` : `text-black`) + ` ` + `font-bold`}>Projects</motion.h1>
             <motion.div
             className = "projects-container grid lg:grid-cols-3 gap-10 place-items-center">
-                {projects.map((project: Project, key: number) => {
+                {projects.map((project: Project) => {
                     return <motion.div layoutId= { project.id } onClick={() => {
                         setSelectedId(project.id)
                         setSelectedProject(project)}} whileHover={{scale: 1.05}} whileTap={{scale: 1}}
@@ -85,7 +84,7 @@ function Projects() {
                        <motion.div className= { `flex` + ` ` + (isMobile ? `flex-col` : `flex-row`) + ` ` }>
                         <motion.div className = { `mt-5 mr-5` }>
                             <motion.p className = { `w-80` }>{ selectedProject.desc }</motion.p>
-                            <motion.p className = { `w-80 mt-5` }>Tags: { selectedProject.tags.map((tag: string, key: number) => tag + `, `) }</motion.p>
+                            <motion.p className = { `w-80 mt-5` }>Tags: { selectedProject.tags.map((tag: string) => tag + `, `) }</motion.p>
                         </motion.div>
                         <motion.div>
                             <motion.img src = { selectedProject.thumbnail } className = { `w-[352px] h-[198] mt-5 shadow-lg rounded-xl shadow-neutral-700` }/>

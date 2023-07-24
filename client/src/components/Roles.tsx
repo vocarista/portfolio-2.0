@@ -44,7 +44,7 @@ function Roles() {
             <motion.h1 className = { `text-center font-bold` + ` ` + (isMobile ? `text-5xl mb-10` : `text-7xl mb-20`) + ` ` + (isDark ? `text-white` : `text-black`)} >Roles</motion.h1>
             <motion.div className = { `roles-container h-auto grid grid-rows items-center` }>
                 {
-                    roles && roles.map((role: Roles, key: number) => {
+                    roles && roles.map((role: Roles) => {
                         return <motion.div className = { (isDark ? `bg-white text-black` : `bg-zinc-800 text-white`) + ` ` + `w-[320px] h-[180px] rounded-xl p-3 shadow-lg shadow-neutral-700` }
                             initial = {{visibility: 'hidden', x: 200}}
                             whileInView={{visibility: 'visible', x: 0}}
