@@ -44,6 +44,8 @@ function Schools() {
 
   return (
     <>
+      
+      <div className="Schools pb-20 flex flex-col items-center">
       <motion.h1
         className={`text-center font-bold ${
           isMobile ? 'text-5xl mb-10' : 'text-7xl mb-20'
@@ -51,21 +53,21 @@ function Schools() {
       >
         Education
       </motion.h1>
-      <div className="Schools pb-20 flex flex-col items-center overflow-y-hidden">
         {/* Use responsive grid classes */}
-        <motion.div className="schools-container pb-10 grid grid-cols-1 md:grid-cols-3 gap-10 overflow-x-auto scrollbar-hide">
+        <motion.div className= {`schools-container pb-10 h-auto flex items-center gap-10` + ` ` + (isMobile ? `flex-col` : `flex-row`)}>
           {schools.map((school: School) => (
             <motion.div
               className={`${
-                isDark ? 'bg-white text-black' : 'bg-zinc-800 text-white'
+                isDark ? 'bg-gradient-to-br from-slate-400 to-white text-black' : 'bg-gradient-to-br from-slate-400 to-slate-800 text-white'
               } rounded-xl p-3 shadow-lg shadow-neutral-700 ${
-                isMobile ? 'w-[368px] h-[198px]' : 'w-[400px] h-[225px]'
+                isMobile ? 'w-[368px] h-[220px]' : 'w-[400px] h-[225px]'
               } school-card`}
               key={school.id}
               initial={{ visibility: 'hidden', x: 200 }}
               whileInView={{ visibility: 'visible', x: 0 }}
               viewport={{ once: true }}
-              transition = {{duration: 0.3}}
+              transition = {{duration: 0.1}}
+              whileHover={{scale: 1.05}}
             >
               <div className="flex">
                 <motion.h1 className="flex-grow text-2xl font-bold">
@@ -76,9 +78,12 @@ function Schools() {
                   className="h-14 rounded-lg"
                 />
               </div>
-              <motion.p className="flex-grow text-xl font-thin w-60">
+              <motion.p className="flex-grow text-xl font-semibold w-60">
                 {school.degree + (school.course ? ` in ` + school.course : ``)}
               </motion.p>
+              <motion.div className = { `flex text-lg` }>Grade: { <p className = { `ml-2 font-semibold text-lg` }>{ school.grade }</p> }</motion.div>
+              <motion.div className = { `flex text-lg` }>Started: { <p className = { `ml-2 font-semibold text-lg` }>{ school.start_date }</p> }</motion.div>
+              <motion.div className = { `flex text-lg` }>Graduated: { <p className = { `ml-2 font-semibold text-lg` }>{ school.isOngoing ? school.end_date + ` (expected)` : school.end_date }</p> }</motion.div>
             </motion.div>
           ))}
         </motion.div>

@@ -4,6 +4,7 @@ import Splash from './components/Splash'
 import Projects from './components/Projects'
 import Roles from './components/Roles'
 import Schools from './components/Schools'
+import Certs from './components/Certs'
 
 function App() {
   const toggleView = useStore((state: any) => state.toggleView);
@@ -33,6 +34,7 @@ function App() {
       <Projects />
       <Roles />
       <Schools />
+      <Certs />
     </div>
   )
 }
