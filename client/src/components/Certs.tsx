@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { motion } from 'framer-motion';
 import { useStore } from '../store/store';
 import ThemedButton from './ThemedButton';
+import Loader from './Loader';
 
 function Certs() {
     const [certs, setCerts] = useState([]);
@@ -33,9 +34,7 @@ function Certs() {
     }, [])
 
     if (isLoading) {
-        return (<div className="flex items-center justify-center w-full h-full fixed top-0 left-0 bg-zinc-800 z-50">
-                 <div className = "loader"></div>
-                </div>)
+        return <Loader />
       }
 
     return (
@@ -47,7 +46,7 @@ function Certs() {
             >
                 Certifications
             </motion.h1>
-            <motion.div className= {`schools-container grid sm:grid-cols-1 lg:grid-cols-3 gap-10` + ` ` + (isMobile ? `flex-col` : `flex-row`)} >
+            <motion.div className= {`schools-container grid sm:grid-cols-1 lg:grid-cols-3 gap-10`} >
                 {
                     certs.map((cert: Certs) => {
                         return <motion.div className = { `${

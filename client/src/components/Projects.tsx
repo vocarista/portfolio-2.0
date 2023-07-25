@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { useStore, } from '../store/store'
 import removeIcon from '../assets/remove.png'
 import ThemedButton from './ThemedButton'
+import Loader from './Loader';
 
 function Projects() {
     const isDark = useStore((state: any) => state.isDark)
@@ -40,9 +41,7 @@ function Projects() {
       }, []);
 
       if (isLoading) {
-        return (<div className="flex items-center justify-center w-full h-full fixed top-0 left-0 bg-zinc-800 z-50">
-                 <div className = "loader"></div>
-                </div>)
+        return <Loader />
       }
 
     return (
