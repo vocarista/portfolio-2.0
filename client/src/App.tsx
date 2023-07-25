@@ -5,6 +5,7 @@ import Projects from './components/Projects'
 import Roles from './components/Roles'
 import Schools from './components/Schools'
 import Certs from './components/Certs'
+import Skills from './components/Skills'
 
 function App() {
   const toggleView = useStore((state: any) => state.toggleView);
@@ -35,6 +36,7 @@ function App() {
       <Roles />
       <Schools />
       <Certs />
+      <Skills />
     </div>
   )
 }
