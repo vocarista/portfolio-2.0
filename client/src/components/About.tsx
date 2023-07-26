@@ -38,7 +38,11 @@ function About() {
                 
                 About Me
             </motion.h1>
-            <motion.div className = { `grid items-center gap-10 p-10 rounded-xl shadow-lg shadow-neutral-700` + ` ` + (isMobile ? `w-[85vw] grid-cols-1` : `w-[80vw] grid-cols-2`) + ` ` + (isDark ? 'bg-gradient-to-br from-slate-400 to-white text-black' : 'bg-gradient-to-br from-slate-400 to-slate-800 text-white') } >
+            <motion.div className = { `grid items-center gap-10 p-10 rounded-xl shadow-lg shadow-neutral-700` + ` ` + (isMobile ? `w-[85vw] grid-cols-1` : `w-[80vw] grid-cols-2`) + ` ` + (isDark ? 'bg-gradient-to-br from-slate-400 to-white text-black' : 'bg-gradient-to-br from-slate-400 to-slate-800 text-white') } 
+            initial ={{opacity: 0, x: 300}}
+            whileInView = {{opacity: 1, x: 0}}
+            transition = {{duration: 0.3}}
+            viewport={{once: true}}>
                 <motion.div className = { `flex flex-col items-center` }>
                     <motion.img src = { `https://i.imgur.com/Mizegwh.jpg`} className = { (isMobile ? `w-[200px] h-[200px]` : `w-[300px] h-[300px]`) + ` ` + `rounded-full border-4 border-black shadow-lg` + ` ` + (isDark ? `shadow-neutral-700` : `shadow-black`) } />
                     <motion.h1 className = { `text-3xl font-extrabold text-center mt-5` } >Kumar Piyush</motion.h1>

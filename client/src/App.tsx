@@ -8,6 +8,7 @@ import Certs from './components/Certs'
 import Skills from './components/Skills'
 import Achieve from './components/Achieve'
 import About from './components/About'
+import Navigation from './components/Navigation'
 
 function App() {
   const toggleView = useStore((state: any) => state.toggleView);
@@ -32,7 +33,8 @@ function App() {
   // }
 
   return (
-    <div className= { (isDark ? `bg-zinc-900` : `bg-white`) + ` App h-full` }>
+    <div className= { (isDark ? `bg-zinc-900` : `bg-white`) + ` App h-full overflow-x-hidden` }>
+      <Navigation />
       <Splash />
       <Projects />
       <Roles />
