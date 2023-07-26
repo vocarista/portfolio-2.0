@@ -64,7 +64,7 @@ app.get('/certs', async (req, res) => {
         console.error('Error fetching certs:', error.message);
         res.status(500).json({ error: 'Internal Server Error' });
     }
-});s
+});
 
 app.get('/achievements', async (req, res) => {
     try {
