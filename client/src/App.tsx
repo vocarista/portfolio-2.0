@@ -18,7 +18,7 @@ function App() {
   const showNavList = useStore((state: any) => state.showNavList);
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth < 768) toggleView(true);
+      if (window.innerWidth < 1000) toggleView(true);
       else toggleView(false)
     }
     handleResize();
