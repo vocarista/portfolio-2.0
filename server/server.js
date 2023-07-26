@@ -7,7 +7,7 @@ const port = process.env.PORT || 3000;
 const { getSkills, getRoles, getProjects, getEducation, getCerts, getAchievements, getAbout } = require('./notion');
 
 app.use(cors({
-    origin: ['http://localhost:5173', 'http://localhost:4173', 'https://vocarista.com', 'http://vocarista.com', 'https://dev.vocarista.com'],
+    origin: ['http://localhost:5173', 'http://localhost:4173', 'https://vocarista.com', 'http://vocarista.com', 'https://dev.vocarista.com', 'https://www.vocarista.com'],
     method: ['POST', 'GET', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization']
 }));
