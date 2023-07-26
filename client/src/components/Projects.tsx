@@ -86,7 +86,7 @@ function Projects() {
                             <motion.p className = { `w-80 mt-5` }>Tags: { selectedProject.tags.map((tag: string) => tag + `, `) }</motion.p>
                         </motion.div>
                         <motion.div>
-                            <motion.img src = { selectedProject.thumbnail } className = { `w-[352px] h-[198] mt-5 shadow-lg rounded-xl shadow-neutral-700` }/>
+                            <motion.img src = { selectedProject.thumbnail } className = { `w-[352px] h-[198] mt-5 shadow-lg rounded-xl` + ` ` + (isDark ? `shadow-neutral-700` : `shadow-black`)}/>
                         </motion.div>
                        </motion.div>
                         <motion.div className="flex justify-center mt-5">

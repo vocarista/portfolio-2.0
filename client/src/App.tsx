@@ -7,6 +7,7 @@ import Schools from './components/Schools'
 import Certs from './components/Certs'
 import Skills from './components/Skills'
 import Achieve from './components/Achieve'
+import About from './components/About'
 
 function App() {
   const toggleView = useStore((state: any) => state.toggleView);
@@ -39,6 +40,7 @@ function App() {
       <Certs />
       <Skills />
       <Achieve />
+      <About />
     </div>
   )
 }
