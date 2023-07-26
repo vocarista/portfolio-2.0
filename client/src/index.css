@@ -74,8 +74,8 @@
 }
 
 .centered-popup{
-    position: fixed;
-    top: 20%;
+    position:fixed;
+    top: 35%;
 }
   
 .scrollbar-hide {

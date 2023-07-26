@@ -73,7 +73,7 @@ function Projects() {
              </motion.div>
              <AnimatePresence>
                 {selectedId && (
-                    <motion.div layoutId = {selectedId} className = {(isMobile ? `w-[368px] h-auto self-center` : `w-[720px] h-[395px]`) + ` ` + (isDark ? 'bg-gradient-to-br from-slate-400 to-white text-black' : 'bg-gradient-to-br from-slate-400 to-slate-800 text-white') + ` ` + `z-10 absolute` + 
+                    <motion.div layoutId = {selectedId} className = {(isMobile ? `w-[368px] h-auto self-center centered-popup` : `w-[720px] h-[395px]`) + ` ` + (isDark ? 'bg-gradient-to-br from-slate-400 to-white text-black' : 'bg-gradient-to-br from-slate-400 to-slate-800 text-white') + ` ` + `z-10 absolute` + 
                 ` ` + `p-4 rounded-xl shadow-lg shadow-neutral-700 flex flex-col`}
                     >
                        <motion.div className = "flex">
