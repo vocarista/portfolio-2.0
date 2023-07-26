@@ -46,13 +46,13 @@ function Navigation() {
             `shadow-lg w-full h-auto mb-5 flex flex-row item-center p-5 justify-between` }
             transition={{ duration: 0.2 }}
             style = {navbarStyles}>
-                <motion.h1
+                <motion.a href = "#"
                 className={`text-center font-bold text-2xl mt-3
                 ${isDark ? 'text-white' : 'text-black'}`}
             style={{ 'fontFamily' : 'monospace'}}>
                 
                 { `{ "vocarista" }` }
-            </motion.h1>
+            </motion.a>
             <motion.div className = 'flex flex-row items-center justify-end'>
                 <ThemePicker />
                 <motion.img src = { HamBurger }
@@ -74,13 +74,13 @@ function Navigation() {
             `shadow-lg w-full h-auto mb-5 flex flex-row items-center p-5 justify-between` }
             transition={{ duration: 0.2 }}
            style = {navbarStyles}>
-                 <motion.h1
+                 <motion.a href = "#"
                 className={`text-center font-bold text-4xl
                 ${isDark ? 'text-white' : 'text-black'}`}
             style={{'fontFamily' : 'monospace'}}>
                 
                 { `{ "vocarista" }` }
-            </motion.h1>
+            </motion.a>
             <motion.div className = 'flex flex-row items-center justify-end'>
                 <ThemePicker />
                 <motion.img src = { HamBurger }
