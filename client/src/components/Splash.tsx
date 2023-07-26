@@ -21,13 +21,13 @@ function Splash() {
                 initial = {{opacity: 0, scale: 0, y: 150}}
                 animate = {{opacity: 1, scale: 1, y: 0}}
                 transition = {{duration: 0.6}}
-                className = { (isMobile ? `text-6xl` : `text-9xl` ) + ` font-thin mt-6 ` + (isDark ? `text-white` : `text-black`)}>Kumar Piyush</motion.h1>
+                className = { (isMobile ? `text-5xl` : `text-9xl` ) + ` font-thin mt-6 ` + (isDark ? `text-white` : `text-black`)}>Kumar Piyush</motion.h1>
                 
                 <motion.h1
                 initial = {{opacity: 0, scale: 0, y: 200}}
                 animate = {{opacity: 1, scale: 1, y: 0}}
                 transition = {{duration: 0.6}}
-                className = {(isMobile ? 'text-4xl' : 'text-6xl') + ` ` + `mt-8 font-thin bg-gradient-to-r from-purple-600 to-blue-600 text-transparent bg-clip-text` }>{ `{ Learner, Dreamer, Developer }` }</motion.h1>
+                className = {(isMobile ? 'text-3xl' : 'text-6xl') + ` ` + `mt-8 font-thin bg-gradient-to-r from-purple-600 to-blue-600 text-transparent bg-clip-text` }>{ `{ "learner", "dreamer", "developer" }` }</motion.h1>
                 <Button text = {`Download CV`} url = {`https://api.main.vocarista.com/download`} />
                 <ScrollAnimation />
             </motion.div>

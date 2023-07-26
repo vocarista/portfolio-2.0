@@ -7,7 +7,7 @@ const port = process.env.PORT || 3000;
 const { getSkills, getRoles, getProjects, getEducation, getCerts, getAchievements, getAbout } = require('./notion');
 
 app.use(cors({
-    origin: ['http://localhost:5173', 'http://localhost:4173', 'https://vocarista.com', 'https://dev.vocarista.com', 'https://www.vocarista.com', 'https://vocarista.onrender.com'],
+    origin: ['https://vocarista.com', 'https://www.vocarista.com', 'https://vocarista.onrender.com'],
     method: ['POST', 'GET', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization']
 }));
@@ -64,7 +64,7 @@ app.get('/certs', async (req, res) => {
         console.error('Error fetching certs:', error.message);
         res.status(500).json({ error: 'Internal Server Error' });
     }
-});
+});s
 
 app.get('/achievements', async (req, res) => {
     try {
