@@ -9,7 +9,7 @@ function Splash() {
     const isMobile = useStore((state: any) => state.isMobile);
 
     return (
-        <div className= {`splash flex flex-col justify-center items-center ` + (isMobile ? `h-[70vh]` : `h-screen`)}>
+        <div className= {`splash flex flex-col justify-center items-center pb-10 pt-10 gap-10` + (isMobile ? `h-auto` : `h-screen`)}>
             <motion.div
             className = 'text-center flex flex-col justify-center items-center'>
                 <motion.h1
