@@ -37,7 +37,7 @@ function Achieve() {
     }
 
     return (
-        <div className = { `Achieve h-auto mt-10 flex flex-col items-center pb-20` }>
+        <div id = "Achievements" className = { `Achieve h-auto mt-10 flex flex-col items-center pb-20` }>
             <motion.h1
         className={`text-center font-bold ${
           isMobile ? 'text-5xl mb-10' : 'text-7xl mb-20'
@@ -45,9 +45,8 @@ function Achieve() {
       >
         Achievements
       </motion.h1>
-            <motion.div className = { `achieve-container grid sm:grid-cols-1 lg:grid-cols-3 gap-10` } >
-                {
-                    achieves.length > 0 ? achieves.map((achieve: Achieve) => {
+            {achieves.length > 0 ? <motion.div className = { `achieve-container grid sm:grid-cols-1 lg:grid-cols-3 gap-10` } >
+                    {achieves.map((achieve: Achieve) => {
                         return <motion.div className={`${
                             isDark ? 'bg-gradient-to-br from-slate-400 to-white text-black' : 'bg-gradient-to-br from-slate-400 to-slate-800 text-white'
                           } rounded-xl p-3 shadow-lg shadow-neutral-700 ${
@@ -55,7 +54,8 @@ function Achieve() {
                           } school-card`}>
                             <motion.h1>{ achieve.name }</motion.h1>
                         </motion.div>
-                    }) : <motion.div className={`${
+                    })}
+            </motion.div> : <motion.div className={`${
                         isDark ? 'bg-gradient-to-br from-slate-400 to-white text-black' : 'bg-gradient-to-br from-slate-400 to-slate-800 text-white'
                       } rounded-xl p-3 shadow-lg shadow-neutral-700 ${
                         isMobile ? 'w-[368px] h-[220px]' : 'w-[400px] h-[225px]'
@@ -66,9 +66,7 @@ function Achieve() {
                         transition = {{duration: 0.1}}
                         whileHover={{scale: 1.05}}>
                         <motion.h1 className = {`text-2xl font-bold`} >So... This is embarrassing</motion.h1>
-                    </motion.div>
-                }
-            </motion.div>
+                    </motion.div>}
         </div>
     )
 }

@@ -9,7 +9,7 @@ function Splash() {
     const isMobile = useStore((state: any) => state.isMobile);
 
     return (
-        <div className= {`splash flex flex-col justify-center items-center pb-10 pt-10 gap-10` + (isMobile ? `h-auto` : `h-screen`)}>
+        <div className= {`splash flex flex-col justify-center items-center pb-10 pt-36 gap-10` + (isMobile ? `h-auto` : `h-full`)}>
             <motion.div
             className = 'text-center flex flex-col justify-center items-center'>
                 <motion.h1
@@ -32,7 +32,7 @@ function Splash() {
                 animate = {{opacity: 1, scale: 1, y: 0}}
                 transition = {{duration: 0.6}}
                 className = "mt-8 text-5xl font-thin bg-gradient-to-r from-purple-600 to-blue-600 text-transparent bg-clip-text">{ `{ Learner, Dreamer, Developer }` }</motion.h1>
-                <Button text = {`Resume`} url = {`https://api.main.vocarista.com/download`} />
+                <Button text = {`Download CV`} url = {`https://api.main.vocarista.com/download`} />
                 <ScrollAnimation />
             </motion.div>
         </div>

@@ -38,7 +38,7 @@ function Certs() {
       }
 
     return (
-        <div className = "Certs h-auto mt-10 flex flex-col items-center pb-20">
+        <div id = "Certifications" className = "Certs h-auto mt-10 flex flex-col items-center pb-20">
             <motion.h1
                 className={`text-center font-bold ${
                 isMobile ? 'text-5xl mb-10' : 'text-7xl mb-20'

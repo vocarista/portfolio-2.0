@@ -9,10 +9,13 @@ import Skills from './components/Skills'
 import Achieve from './components/Achieve'
 import About from './components/About'
 import Navigation from './components/Navigation'
+import Footer from './components/Footer'
+import NavList from './components/NavList'
 
 function App() {
   const toggleView = useStore((state: any) => state.toggleView);
   const isDark = useStore((state: any) => state.isDark);
+  const showNavList = useStore((state: any) => state.showNavList);
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth < 768) toggleView(true);
@@ -26,15 +29,11 @@ function App() {
     }
   }, [])
 
-  // if (isProjectsLoading || isRolesLoading || isSchoolsLoading) {
-  //   return (<div className="flex items-center justify-center w-full h-full fixed top-0 left-0 bg-zinc-800 z-50">
-  //            <div className = "loader"></div>
-  //           </div>)
-  // }
 
   return (
     <div className= { (isDark ? `bg-zinc-900` : `bg-white`) + ` App h-full overflow-x-hidden` }>
       <Navigation />
+      { showNavList && <NavList /> }
       <Splash />
       <Projects />
       <Roles />
@@ -43,6 +42,7 @@ function App() {
       <Skills />
       <Achieve />
       <About />
+      <Footer />
     </div>
   )
 }

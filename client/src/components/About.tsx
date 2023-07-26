@@ -29,7 +29,7 @@ function About() {
     }
 
     return (
-        <div className = { `h-auto mt-10 flex flex-col items-center justify-center pb-20`}>
+        <div id = "About" className = { `h-auto mt-10 flex flex-col items-center justify-center pb-20`}>
              <motion.h1
                 className={`text-center font-bold ${
                 isMobile ? 'text-5xl mb-10' : 'text-7xl mb-20'
@@ -38,7 +38,7 @@ function About() {
                 
                 About Me
             </motion.h1>
-            <motion.div className = { `grid items-center gap-10 p-10 rounded-xl shadow-lg shadow-neutral-700` + ` ` + (isMobile ? `w-[85vw] grid-cols-1` : `w-[80vw] grid-cols-2`) + ` ` + (isDark ? 'bg-gradient-to-br from-slate-400 to-white text-black' : 'bg-gradient-to-br from-slate-400 to-slate-800 text-white') } 
+            <motion.div className = { `grid items-center gap-10 p-10 rounded-xl shadow-lg shadow-neutral-700` + ` ` + (isMobile ? `w-[90vw] grid-cols-1` : `w-[80vw] grid-cols-2`) + ` ` + (isDark ? 'bg-gradient-to-br from-slate-400 to-white text-black' : 'bg-gradient-to-br from-slate-400 to-slate-800 text-white') } 
             initial ={{opacity: 0, x: 300}}
             whileInView = {{opacity: 1, x: 0}}
             transition = {{duration: 0.3}}

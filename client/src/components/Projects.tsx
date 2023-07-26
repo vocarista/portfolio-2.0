@@ -45,7 +45,7 @@ function Projects() {
       }
 
     return (
-        <div className = {`projects h-full flex flex-col items-center pb-10`}>
+        <div id = "Projects" className = {`projects h-full flex flex-col items-center pb-10`}>
             <motion.h1 className = {(isMobile ? `text-5xl mb-10` : `text-7xl mb-20`) + ` ` + (isDark ? `text-white` : `text-black`) + ` ` + `font-bold`}>Projects</motion.h1>
             <motion.div
             className = "projects-container grid lg:grid-cols-3 gap-10 place-items-center">

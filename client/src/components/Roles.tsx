@@ -39,7 +39,7 @@ function Roles() {
         return <Loader />
       }
     return (
-        <div className="Roles h-auto mt-10 flex flex-col items-center pb-20">
+        <div id = "Roles" className="Roles h-auto mt-10 flex flex-col items-center pb-20">
             <motion.h1 className = { `text-center font-bold` + ` ` + (isMobile ? `text-5xl mb-10` : `text-7xl mb-20`) + ` ` + (isDark ? `text-white` : `text-black`)} >Roles</motion.h1>
             <motion.div className = { `roles-container h-auto grid grid-rows items-center` }>
                 {

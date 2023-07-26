@@ -44,7 +44,7 @@ function Schools() {
   return (
     <>
       
-      <div className="Schools pb-20 flex flex-col items-center">
+      <div id = "Schools" className="Schools pb-20 flex flex-col items-center">
       <motion.h1
         className={`text-center font-bold ${
           isMobile ? 'text-5xl mb-10' : 'text-7xl mb-20'
@@ -52,7 +52,6 @@ function Schools() {
       >
         Education
       </motion.h1>
-        {/* Use responsive grid classes */}
         <motion.div className= {`schools-container pb-10 h-auto flex items-center gap-10` + ` ` + (isMobile ? `flex-col` : `flex-row`)}>
           {schools.map((school: School) => (
             <motion.div
