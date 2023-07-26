@@ -10,7 +10,7 @@ function ThemePicker() {
     return(
         <motion.div>
             <motion.img src = { isDark ? DarkButton : LightButton }
-            className = { `h-[50px] w-[50px] rounded-full cursor-pointer border-2 p-1` + ` ` + (isDark ? `border-white` : `border-gray-400`)  } 
+            className = { `theme h-[50px] w-[50px] rounded-full cursor-pointer border-2 p-1` + ` ` + (isDark ? `border-white` : `border-gray-400`)  } 
             onClick = {() => {
                 toggleTheme();
             }} 

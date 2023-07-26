@@ -47,8 +47,8 @@ function Skills() {
                 {
                     skills.map((skill: Skill) => {
                         return <motion.div className = { `flex flex-col items-center` } 
-                        initial={{ visibility: 'hidden', y: 200, scale: 0 }}
-                            whileInView={{ visibility: 'visible', y: 0, scale: 1 }}
+                        initial={{ visibility: 'hidden', y: 200 }}
+                            whileInView={{ visibility: 'visible', y: 0}}
                             viewport={{ once: true }}
                             transition = {{duration: 0.4}}
                             whileHover={{scale: 1.05}}>
