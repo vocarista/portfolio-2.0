@@ -13,7 +13,7 @@ app.use(cors({
 }));
 
 app.get('/', (req, res) => {
-    res.send('Server runnning at path: /');
+    res.redirect('https://vocarista.com');
 });
 
 app.get('/skills', async (req, res) => {
