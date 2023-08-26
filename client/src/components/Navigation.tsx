@@ -43,11 +43,11 @@ function Navigation() {
     function MobileNav() {
         return(
             <motion.div className = { (isDark ? `bg-zinc-950 shadow-neutral-700` : `bg-zinc-200 shadow-black`) + ` ` +
-            `shadow-lg w-full h-auto mb-5 flex flex-row item-center p-5 justify-between` }
+            `shadow-lg w-full h-auto mb-5 flex flex-row item-center p-4 justify-between` }
             transition={{ duration: 0.2 }}
             style = {navbarStyles}>
                 <motion.a href = "#"
-                className={`text-center font-bold text-2xl mt-3
+                className={`text-center font-bold mt-3 ${window.innerWidth < 400 ? `text-xl` : `text-2xl`}
                 ${isDark ? 'text-white' : 'text-black'}`}
             style={{ 'fontFamily' : 'monospace'}}>
                 

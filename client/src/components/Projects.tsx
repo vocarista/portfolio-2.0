@@ -53,7 +53,7 @@ function Projects() {
                     return <motion.div layoutId= { project.id } onClick={() => {
                         setSelectedId(project.id)
                         setSelectedProject(project)}} whileHover={{scale: 1.05}} whileTap={{scale: 1}}
-                    className = {(isMobile ? `w-[368px] h-[198px]` : `w-[400px] h-[225px]` ) + ` ` + `flex flex-col hover:outline hover:outline-4 hover:outline-blue-600` + ` ` + (selectedId !== null ? `brightness-reduce` : ``)
+                    className = {(isMobile ? `w-[90vw] h-[198px]` : `w-[400px] h-[225px]` ) + ` ` + `flex flex-col hover:outline hover:outline-4 hover:outline-blue-600` + ` ` + (selectedId !== null ? `brightness-reduce` : ``)
                     + ` ` + `rounded-xl text-left p-3 bg-cover shadow-neutral-700 shadow-lg text-white`} style = {{backgroundImage: `linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.3)), url(${project.thumbnail})`}}
                     initial = {{visibility: 'hidden', x: 200}}
                     whileInView={{visibility: 'visible', x: 0}}
@@ -73,12 +73,12 @@ function Projects() {
              </motion.div>
              <AnimatePresence>
                 {selectedId && (
-                    <motion.div layoutId = {selectedId} className = {(isMobile ? `w-[368px] h-auto self-center centered-popup` : `w-[720px] h-[395px]`) + ` ` + (isDark ? 'bg-gradient-to-br from-slate-400 to-white text-black' : 'bg-gradient-to-br from-slate-400 to-slate-800 text-white') + ` ` + `z-10 absolute` + 
+                    <motion.div layoutId = {selectedId} className = {(isMobile ? `w-[90vw] h-auto self-center centered-popup` : `w-[720px] h-[395px]`) + ` ` + (isDark ? 'bg-gradient-to-br from-slate-400 to-white text-black' : 'bg-gradient-to-br from-slate-400 to-slate-800 text-white') + ` ` + `z-10 absolute` + 
                 ` ` + `p-4 rounded-xl shadow-lg shadow-neutral-700 flex flex-col`}
                     >
                        <motion.div className = "flex">
                         <motion.h1 className = "text-3xl font-bold flex-grow" >{ selectedProject.name} </motion.h1>
-                        <motion.img onClick = {() => setSelectedId(null)} src= { removeIcon } className={ `cursor-pointer h-8 hover:brightness-75` }/>
+                        <motion.img onClick = {() => setSelectedId(null)} src= { removeIcon } className={ `cursor-pointer h-8 hover:brightness-75 transition-opacity duration-200` }/>
                        </motion.div>
                        <motion.div className= { `flex` + ` ` + (isMobile ? `flex-col` : `flex-row`) + ` ` }>
                         <motion.div className = { `mt-5 mr-5` }>

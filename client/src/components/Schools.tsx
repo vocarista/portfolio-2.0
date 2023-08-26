@@ -58,7 +58,7 @@ function Schools() {
               className={`${
                 isDark ? 'bg-gradient-to-br from-slate-400 to-white text-black' : 'bg-gradient-to-br from-slate-400 to-slate-800 text-white'
               } rounded-xl p-3 shadow-lg shadow-neutral-700 ${
-                isMobile ? 'w-[368px] h-[220px]' : 'w-[400px] h-[225px]'
+                isMobile ? 'w-[90vw] h-[220px]' : 'w-[400px] h-[225px]'
               } school-card`}
               key={school.id}
               initial={{ visibility: 'hidden', x: 200 }}

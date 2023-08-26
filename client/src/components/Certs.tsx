@@ -52,7 +52,7 @@ function Certs() {
                         return <motion.div className = { `${
                             isDark ? 'bg-gradient-to-br from-slate-400 to-white text-black' : 'bg-gradient-to-br from-slate-400 to-slate-800 text-white'
                           } rounded-xl p-3 shadow-lg shadow-neutral-700 ${
-                            isMobile ? 'w-[368px] h-auto' : 'w-[400px] h-auto'
+                            isMobile ? 'w-[90vw] h-auto' : 'w-[400px] h-auto'
                           } cert-card flex flex-row` }
                           key={cert.id}
                             initial={{ visibility: 'hidden', x: 200 }}
@@ -60,7 +60,7 @@ function Certs() {
                             viewport={{ once: true }}
                             transition = {{duration: 0.1}}
                             whileHover={{scale: 1.05}}>
-                            <motion.div>
+                            <motion.div className="flex-grow">
                                 <motion.h1 className="text-xl font-bold">
                                     {cert.name}
                                 </motion.h1>

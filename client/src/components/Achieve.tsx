@@ -50,7 +50,7 @@ function Achieve() {
                         return <motion.div className={`${
                             isDark ? 'bg-gradient-to-br from-slate-400 to-white text-black' : 'bg-gradient-to-br from-slate-400 to-slate-800 text-white'
                           } rounded-xl p-3 shadow-lg shadow-neutral-700 ${
-                            isMobile ? 'w-[368px] h-[220px]' : 'w-[400px] h-[225px]'
+                            isMobile ? 'w-[90vw] h-[220px]' : 'w-[400px] h-[225px]'
                           } school-card`}>
                             <motion.h1>{ achieve.name }</motion.h1>
                         </motion.div>
@@ -58,7 +58,7 @@ function Achieve() {
             </motion.div> : <motion.div className={`${
                         isDark ? 'bg-gradient-to-br from-slate-400 to-white text-black' : 'bg-gradient-to-br from-slate-400 to-slate-800 text-white'
                       } rounded-xl p-3 shadow-lg shadow-neutral-700 ${
-                        isMobile ? 'w-[368px] h-[220px]' : 'w-[400px] h-[225px]'
+                        isMobile ? 'w-[90vw] h-[180px]' : 'w-[400px] h-[225px]'
                       } school-card items-center justify-center flex flex-col`}
                         initial={{ visibility: 'hidden', x: 200 }}
                         whileInView={{ visibility: 'visible', x: 0 }}

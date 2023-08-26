@@ -96,7 +96,7 @@ function NavList() {
           toggleShowNavList();
         }}
         src={closeIcon}
-        className="cursor-pointer h-8"
+        className="cursor-pointer h-8 hover:opacity-75 transition-opacity duration-200"
       />
     </motion.div>
   );
