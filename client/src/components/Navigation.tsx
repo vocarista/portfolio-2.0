@@ -36,7 +36,7 @@ function Navigation() {
         visibility: visible && !showNavList ? 'visible' : 'hidden',
         opacity: visible && !showNavList ? 1 : 0,
         transition: 'visibility 0s, opacity 0.5s ease-in-out',
-      };
+    };
 
 
 
