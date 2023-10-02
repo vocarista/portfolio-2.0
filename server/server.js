@@ -6,15 +6,13 @@ require('dotenv').config();
 const port = process.env.PORT || 3000;
 const { getSkills, getRoles, getProjects, getEducation, getCerts, getAchievements, getAbout } = require('./notion');
 
+app.use(express.static('public'));
+
 app.use(cors({
     origin: ['https://vocarista.com', 'https://www.vocarista.com', 'https://vocarista.onrender.com'],
     method: ['POST', 'GET', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization']
 }));
-
-app.get('/', (req, res) => {
-    res.redirect('https://vocarista.com');
-});
 
 app.get('/skills', async (req, res) => {
     try {
