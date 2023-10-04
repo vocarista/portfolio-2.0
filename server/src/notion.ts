@@ -5,7 +5,7 @@ const notion = new Client({
 });
 
 
-const getSkills = async () => {
+export async function getSkills (): Promise<any>{
     const response = await notion.databases.query({
         database_id: process.env.NOTION_SKILLS_DB,
         sorts: [{
@@ -14,20 +14,20 @@ const getSkills = async () => {
         }]
     })
     // console.log(response.results[0].properties)
-    return response.results.map((item) => ({
+    return response.results.map((item: any) => ({
         id: item.id,
         name: item.properties.skill_name.title[0].plain_text,
         icon: item.properties.icon.url ? item.properties.icon.url : ``,
     }))
 }
 
-const getRoles = async () => {
+export async function getRoles(): Promise<any>{
     const response = await notion.databases.query({
         database_id: process.env.NOTION_ROLES_DB,
     })
 
     // console.log(response.results[0].properties.desc.rich_text)
-    return response.results.map(item => ({
+    return response.results.map((item: any) => ({
         id: item.id,
         name: item.properties.role_name.title[0].plain_text,
         employer: item.properties.employer.rich_text[0].plain_text,
@@ -39,7 +39,7 @@ const getRoles = async () => {
     }))
 }
 
-const getProjects = async () => {
+export async function getProjects(): Promise<any>{
     const response = await notion.databases.query({
         database_id: process.env.NOTION_PROJECTS_DB,
         sorts: [{
@@ -48,20 +48,20 @@ const getProjects = async () => {
         }]
     })
     // console.log(response.results[0].properties)
-    return response.results.map(item => ({
+    return response.results.map((item: any) => ({
         id: item.id,
         name: item.properties.project_name.title[0].plain_text,
         url: item.properties.url.url ? item.properties.url.url : '',
         thumbnail: item.properties.thumbnail.url ? item.properties.thumbnail.url : '',
         desc: item.properties.desc.rich_text[0].plain_text,
         isOngoing: item.properties.isOngoing.checkbox,
-        tags: item.properties.tags.multi_select.map(tag => tag.name),
+        tags: item.properties.tags.multi_select.map((tag: any) => tag.name),
         start_date: item.properties.start_date.date.start,
         update_date: item.properties.update_date.date.start,
     }))
 }
 
-const getEducation = async () => {
+export async function getEducation(): Promise<any> {
     const response = await notion.databases.query({
         database_id: process.env.NOTION_EDUCATION_KEY,
         sorts: [{
@@ -71,7 +71,7 @@ const getEducation = async () => {
     })
 
     // console.log(response.results[0].properties)
-    return response.results.map(item => ({
+    return response.results.map((item: any) => ({
         id: item.id,
         name: item.properties.institution_name.title[0].plain_text,
         degree: item.properties.degree.rich_text[0].plain_text,
@@ -84,7 +84,7 @@ const getEducation = async () => {
     }))
 }
 
-const getCerts = async () => {
+export async function getCerts(): Promise<any>{
     const response = await notion.databases.query({
         database_id: process.env.NOTION_CERTS_KEY,
         sorts: [{
@@ -92,7 +92,7 @@ const getCerts = async () => {
             direction: 'ascending'
         }]
     })
-    return response.results.map(item => ({
+    return response.results.map((item: any) => ({
         id: item.id,
         name: item.properties.cert_name.title[0].plain_text,
         org_name: item.properties.org_name.rich_text[0].plain_text,
@@ -101,12 +101,12 @@ const getCerts = async () => {
     }))
 }
 
-const getAchievements = async () => {
+export async function getAchievements(): Promise<any>{
     const response = await notion.databases.query({
         database_id: process.env.NOTION_ACHIEVEMENTS_KEY,
     })
     if (response.results.length == 0) return [];
-    return response.results.map(item => ({
+    return response.results.map((item: any) => ({
         id: item.id,
         name: item.properties.name.title[0].plain_text,
         desc: item.properties.desc.rich_text[0].plain_text,
@@ -115,7 +115,7 @@ const getAchievements = async () => {
     }))
 }
 
-const getAbout = async () => {
+export async function getAbout(): Promise<any>{
     const response = await notion.databases.query({
         database_id: process.env.NOTION_TEXTS_KEY,
         filter: {
@@ -124,14 +124,4 @@ const getAbout = async () => {
         }
     })
     return { about: response.results[0].properties.text.rich_text[0].plain_text };
-}
-
-module.exports = {
-    getSkills,
-    getRoles,
-    getProjects,
-    getEducation,
-    getCerts,
-    getAchievements,
-    getAbout,
 }
