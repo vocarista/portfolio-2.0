@@ -11,6 +11,7 @@ import About from './components/About'
 import Navigation from './components/Navigation'
 import Footer from './components/Footer'
 import NavList from './components/NavList'
+import MaintenanceComponent from './components/MaintenanceComponent'
 
 function App() {
   const toggleView = useStore((state: any) => state.toggleView);
@@ -32,7 +33,7 @@ function App() {
 
   return (
     <div className= { (isDark ? `bg-zinc-900` : `bg-white`) + ` App h-full overflow-x-hidden` }>
-      <Navigation />
+      {/* <Navigation />
       { showNavList && <NavList /> }
       <Splash />
       <Projects />
@@ -42,7 +43,8 @@ function App() {
       <Skills />
       <Achieve />
       <About />
-      <Footer />
+      <Footer /> */}
+      <MaintenanceComponent />
     </div>
   )
 }
