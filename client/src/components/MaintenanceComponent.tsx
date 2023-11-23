@@ -16,6 +16,7 @@ const Container = styled.div`
 const Title = styled.h1`
   font-size: 2.5em;
   margin-bottom: 20px;
+  text-align: center;
 `;
 
 const Description = styled.p`
