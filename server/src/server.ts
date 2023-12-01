@@ -9,7 +9,7 @@ import { getSkills, getRoles, getProjects, getEducation, getCerts, getAchievemen
 app.use(express.static('public'));
 
 app.use(cors({
-    origin: ['https://vocarista.com', 'https://www.vocarista.com', 'https://vocarista.onrender.com', 'http://localhost:5173'],
+    origin: ['https://vocarista.com', 'https://www.vocarista.com', 'https://vocarista.onrender.com',],
     method: ['POST', 'GET', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization']
 }));
