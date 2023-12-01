@@ -8,6 +8,7 @@ function Skills() {
     const isDark = useStore((state: any) => state.isDark);
     const isMobile = useStore((state: any) => state.isMobile);
     const [isLoading, setIsLoading] = useState(true);
+    const base = useStore((state: any) => state.base);
 
     interface Skill {
         id: string,
@@ -18,7 +19,7 @@ function Skills() {
     useEffect(() => {
         async function getSkills() {
             try {
-                const response = await fetch('https://api.main.vocarista.com/skills');
+                const response = await fetch(base + '/skills');
                 const json = await response.json();
                 setSkills(json);
             } catch(err) {

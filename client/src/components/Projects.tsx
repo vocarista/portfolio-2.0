@@ -13,6 +13,7 @@ function Projects() {
     const [selectedId, setSelectedId] = useState(null)
     const [selectedProject, setSelectedProject] = useState<Project>(projects[0])
     const [isLoading, setIsLoading] = useState(true);
+    const base = useStore((state: any) => state.base);
 
     interface Project {
         id: any,
@@ -28,7 +29,7 @@ function Projects() {
     useEffect(() => {
         async function getProjects() {
           try {
-            const response = await fetch('https://api.main.vocarista.com/projects');
+            const response = await fetch(base + '/projects');
             const json = await response.json();
             setProjects(json);
           } catch (error) {
@@ -45,7 +46,7 @@ function Projects() {
       }
 
     return (
-        <div id = "Projects" className = {`projects h-full flex flex-col items-center pb-10`}>
+        <div id = "Projects" className = {`projects h-auto flex flex-col items-center justify-center pb-10`}>
             <motion.h1 className = {(isMobile ? `text-5xl mb-10` : `text-7xl mb-20`) + ` ` + (isDark ? `text-white` : `text-black`) + ` ` + `font-bold`}>Projects</motion.h1>
             <motion.div
             className = "projects-container grid lg:grid-cols-3 gap-10 place-items-center">
@@ -73,7 +74,7 @@ function Projects() {
              </motion.div>
              <AnimatePresence>
                 {selectedId && (
-                    <motion.div layoutId = {selectedId} className = {(isMobile ? `w-[90vw] h-auto self-center centered-popup` : `w-[720px] min-h-[395px] h-auto`) + ` ` + (isDark ? 'bg-gradient-to-br from-slate-400 to-white text-black' : 'bg-gradient-to-br from-slate-400 to-slate-800 text-white') + ` ` + `z-10 absolute` + 
+                    <motion.div layoutId = {selectedId} className = {(isMobile ? `w-[90vw] h-auto self-center centered-popup max-h-[550px] overflow-y-scroll` : `w-[720px] min-h-[395px] h-auto`) + ` ` + (isDark ? 'bg-gradient-to-br from-slate-400 to-white text-black' : 'bg-gradient-to-br from-slate-400 to-slate-800 text-white') + ` ` + `z-10 absolute` + 
                 ` ` + `p-4 rounded-xl shadow-lg shadow-neutral-700 flex flex-col`}
                     >
                        <motion.div className = "flex">

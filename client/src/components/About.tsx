@@ -8,11 +8,12 @@ function About() {
     const isMobile = useStore((state: any) => state.isMobile);
     const [isLoading, setIsLoading] = useState(true);
     const [about, setAbout] = useState("")
+    const base = useStore((state: any) => state.base);
 
     useEffect(() => {
         async function getAbout() {
             try {
-                const response = await fetch('https://api.main.vocarista.com/about');
+                const response = await fetch(base + '/about',);
                 const json = await response.json();
                 setAbout(json.about);
             } catch(err) {

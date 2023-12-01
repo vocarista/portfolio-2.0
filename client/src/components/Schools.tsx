@@ -9,6 +9,8 @@ function Schools() {
   const isMobile = useStore((state: any) => state.isMobile);
   // const setIsSchoolsLoading = useStore((state: any) => state.setIsSchoolsLoading);
   const [isLoading, setIsLoading] = useState(true);
+  
+  const base = useStore((state: any) => state.base);
 
   interface School {
     id: string;
@@ -25,7 +27,7 @@ function Schools() {
   useEffect(() => {
     async function getSchools() {
       try {
-        const response = await fetch('https://api.main.vocarista.com/education');
+        const response = await fetch(base + '/education');
         const json = await response.json();
         setSchools(json);
       } catch(err) {

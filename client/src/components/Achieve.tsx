@@ -2,25 +2,28 @@ import { useState, useEffect } from 'react';
 import { useStore } from '../store/store';
 import { motion } from 'framer-motion';
 import Loader from './Loader';
+import ThemedButton from './ThemedButton';
 
 function Achieve() {
     const isDark = useStore((state: any) => state.isDark);
     const isMobile = useStore((state: any) => state.isMobile);
     const [isLoading, setIsLoading] = useState(true);
     const [achieves, setAchieves] = useState([]);
+    const base = useStore((state: any) => state.base);
+    
 
     interface Achieve {
         id: string,
         name: string,
         desc: string,
-        date: string,
+        date: Date,
         url: string
     }
 
     useEffect(() => {
         async function getAchieve() {
             try {
-                const response = await fetch('https://api.main.vocarista.com/achievements');
+                const response = await fetch(base + '/achievements');
                 const json = await response.json();
                 setAchieves(json);
             } catch(err) {
@@ -30,7 +33,7 @@ function Achieve() {
             }
         }
         getAchieve();
-    })
+    }, [])
 
     if(isLoading) {
         return <Loader />
@@ -50,9 +53,20 @@ function Achieve() {
                         return <motion.div className={`${
                             isDark ? 'bg-gradient-to-br from-slate-400 to-white text-black' : 'bg-gradient-to-br from-slate-400 to-slate-800 text-white'
                           } rounded-xl p-3 shadow-lg shadow-neutral-700 ${
-                            isMobile ? 'w-[90vw] h-[220px]' : 'w-[400px] h-[225px]'
-                          } school-card`}>
-                            <motion.h1>{ achieve.name }</motion.h1>
+                            isMobile ? 'w-[90vw] h-auto' : 'w-[400px] h-auto'
+                          } place-items-center flex flex-col`}
+                          initial={{ visibility: 'hidden', x: 200 }}
+                        whileInView={{ visibility: 'visible', x: 0 }}
+                        viewport={{ once: true }}
+                        transition = {{duration: 0.1}}
+                        whileHover={{scale: 1.05}}>
+                            <motion.h1 className = "text-2xl font-bold">{ achieve.name }</motion.h1>
+                            <motion.p className = "text-lg">{ achieve.desc }</motion.p>
+                            <motion.div className = "flex flex-row mt-2">
+                                <motion.h1 className = {`font-thin text-xl text-gray-800`} >Date: </motion.h1>
+                                <motion.h1 className = {`font-semibold text-xl ml-3`}>{`${achieve.date}`}</motion.h1>
+                            </motion.div>
+                            <ThemedButton text={`Visit`} url={achieve.url} isDark={isDark ? false : true} />
                         </motion.div>
                     })}
             </motion.div> : <motion.div className={`${

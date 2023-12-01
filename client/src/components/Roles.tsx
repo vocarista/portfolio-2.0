@@ -17,13 +17,13 @@ function Roles() {
     const [roles, setRoles] = useState<Array<Roles>>();
     const isDark = useStore((state: any) => state.isDark);
     const isMobile = useStore((state: any) => state.isMobile);
-    // onst setIsRolesLoading = useStore((state: any) => state.setIsRolesLoading)
     const [isLoading, setIsLoading] = useState(true);
+    const base = useStore((state: any) => state.base);
 
     useEffect(() => {
         async function getRoles() {
           try {
-            const response = await fetch('https://api.main.vocarista.com/roles');
+            const response = await fetch(base + '/roles');
             const json = await response.json();
             setRoles(json);
           } catch(err) {
@@ -41,7 +41,7 @@ function Roles() {
     return (
         <div id = "Roles" className="Roles h-auto mt-10 flex flex-col items-center pb-20">
             <motion.h1 className = { `text-center font-bold` + ` ` + (isMobile ? `text-5xl mb-10` : `text-7xl mb-20`) + ` ` + (isDark ? `text-white` : `text-black`)} >Roles</motion.h1>
-            <motion.div className = { `roles-container h-auto grid grid-flow-col gap-10 items-center` }>
+            <motion.div className = { `roles-container h-auto grid ${isMobile ? `grid-cols-1` : `grid-cols-3`} gap-10 place-items-center` }>
                 {
                     roles && roles.map((role: Roles) => {
                         return <motion.div className = { (

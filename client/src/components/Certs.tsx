@@ -9,6 +9,7 @@ function Certs() {
     const isDark = useStore((state: any) => state.isDark);
     const isMobile = useStore((state: any) => state.isMobile);
     const [isLoading, setIsLoading] = useState(true);
+    const base = useStore((state: any) => state.base);
 
     interface Certs {
         id: string,
@@ -21,7 +22,7 @@ function Certs() {
     useEffect(() => {
         async function getCerts() {
             try {
-                const response = await fetch('https://api.main.vocarista.com/certs');
+                const response = await fetch(base + '/certs');
                 const json = await response.json();
                 setCerts(json);
             } catch(err) {
