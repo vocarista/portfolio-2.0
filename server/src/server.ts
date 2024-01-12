@@ -88,16 +88,16 @@ app.get('/download', async (req: any, res: any) => {
     res.download('./public/resume.pdf', 'Kumar_Piyush_resume.pdf');
 });
 
-// const pingServer = async () => {
-//     try {
-//         await axios.get('https://api.main.vocarista.com');
-//     } catch (error: any) {
-//         console.error('Error pinging the server:', error.message);
-//     }
-// };
+const pingServer = async () => {
+    try {
+        await axios.get('https://api.main.vocarista.com');
+    } catch (error: any) {
+        console.error('Error pinging the server:', error.message);
+    }
+};
 
-// const pingInterval = 1000 * 60 * 14;
-// setInterval(pingServer, pingInterval);
+const pingInterval = 1000 * 60 * 14;
+setInterval(pingServer, pingInterval);
 
 app.listen(port, () => {
     console.log(`Server running at: http://localhost:${port}`);
