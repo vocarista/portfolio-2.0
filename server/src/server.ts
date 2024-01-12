@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const cors = require('cors');
-// const axios = require('axios');
+const axios = require('axios');
 require('dotenv').config();
 const port = process.env.PORT || 3000;
 import { getSkills, getRoles, getProjects, getEducation, getCerts, getAchievements, getAbout } from './notion';
