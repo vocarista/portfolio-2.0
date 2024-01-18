@@ -16,6 +16,7 @@ import NavList from './components/NavList'
 function App() {
   const toggleView = useStore((state: any) => state.toggleView);
   const isDark = useStore((state: any) => state.isDark);
+  const toggleTheme = useStore((state: any) => state.toggleTheme);
   const showNavList = useStore((state: any) => state.showNavList);
   useEffect(() => {
     const handleResize = () => {
@@ -29,6 +30,16 @@ function App() {
       window.removeEventListener('resize', handleResize);
     }
   }, [])
+
+  useEffect(() => {
+    const handleThemeChange = (e: any) => {
+      toggleTheme(e.matches);
+    };
+
+    const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    darkModeMediaQuery.addListener(handleThemeChange);
+    return () => darkModeMediaQuery.removeListener(handleThemeChange);
+  }, []);
 
 
   return (
