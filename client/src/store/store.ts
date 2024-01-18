@@ -6,7 +6,8 @@ export const useStore = create(set => ({
     isMobile: false,
     showNavList: false,
     base: 'https://api.main.vocarista.com',
-    toggleTheme: (mode: boolean) => set((state: any) => ({...state, isDark: !mode})),
+    setTheme: (newTheme: boolean) => set((state: any) => ({...state, isDark: newTheme})),
+    toggleTheme: () => set((state: any) => ({...state, isDark: !state.isDark})),
     toggleView: (isMobile: boolean) => set((state: any) => ({...state, isMobile: isMobile})),
     toggleShowNavList: () => set((state: any) => ({...state, showNavList: !state.showNavList}))
 }))
