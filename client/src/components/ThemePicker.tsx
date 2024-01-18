@@ -12,7 +12,7 @@ function ThemePicker() {
             <motion.img src = { isDark ? DarkButton : LightButton }
             className = { `theme h-[50px] w-[50px] rounded-full cursor-pointer border-2 p-1` + ` ` + (isDark ? `border-white` : `border-gray-400`)  } 
             onClick = {() => {
-                toggleTheme();
+                toggleTheme(!isDark);
             }} 
             whileHover={{scale: 1.1}}
             whileTap={{scale: 0.95}}
