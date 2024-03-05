@@ -17,7 +17,6 @@ import Background from './components/Background'
 function App() {
   const toggleView = useStore((state: any) => state.toggleView);
   const isDark = useStore((state: any) => state.isDark);
-  const setTheme = useStore((state: any) => state.setTheme);
   const showNavList = useStore((state: any) => state.showNavList);
   useEffect(() => {
     const handleResize = () => {
