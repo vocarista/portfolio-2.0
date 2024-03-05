@@ -105,7 +105,7 @@ body {
 /* End of loader.css */
 
 .change-card{
-    will-change: transform;
+    will-change: auto;
 }
 
     .stars {
@@ -116,6 +116,7 @@ body {
         height: 120vh;
         transform: rotate(-45deg);
         z-index: -1;
+        will-change: auto;
       }
       
       .star {
@@ -123,7 +124,7 @@ body {
         --star-tail-length: 6em;
         --star-tail-height: 2px;
         --star-width: calc(var(--star-tail-length) / 6);
-        --fall-duration: 9s;
+        --fall-duration: 7s; /* Decreased duration */
         --tail-fade-duration: var(--fall-duration);
         position: absolute;
         top: var(--top-offset);
@@ -136,13 +137,30 @@ body {
         filter: drop-shadow(0 0 6px currentColor);
         transform: translate3d(104em, 0, 0);
         animation: fall var(--fall-duration) var(--fall-delay) linear infinite, tail-fade var(--tail-fade-duration) var(--fall-delay) ease-out infinite;
-        will-change: transform, opacity;
-      }
-      @media screen and (max-width: 750px) {
-        .star {
-          animation: fall var(--fall-duration) var(--fall-delay) linear infinite;
+        will-change: transform;
+    }
+    
+    @keyframes fall {
+        to {
+            transform: translate3d(-30em, 0, 0);
         }
-      }
+    }
+    
+    @keyframes tail-fade {
+        0%, 50% {
+            width: var(--star-tail-length);
+            opacity: 1;
+        }
+        70%, 80% {
+            width: 0;
+            opacity: 0.4;
+        }
+        100% {
+            width: 0;
+            opacity: 0;
+        }
+    }
+    
       .star:nth-child(1) {
         --star-tail-length: 7.15em;
         --top-offset: 88.07vh;
@@ -466,7 +484,7 @@ body {
           transform: translate3d(-30em, 0, 0);
         }
       }
-      @keyframes tail-fade {
+      /* @keyframes tail-fade {
         0%, 50% {
           width: var(--star-tail-length);
           opacity: 1;
@@ -484,4 +502,4 @@ body {
         50% {
           opacity: 0.6;
         }
-      }
+      } */
