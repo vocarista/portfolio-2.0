@@ -54,7 +54,7 @@ function Achieve() {
                             isDark ? 'bg-gradient-to-br from-slate-400 to-white text-black' : 'bg-gradient-to-br from-slate-400 to-slate-800 text-white'
                           } rounded-xl p-3 shadow-lg shadow-neutral-700 ${
                             isMobile ? 'w-[90vw] h-auto' : 'w-[400px] h-auto'
-                          } place-items-center flex flex-col`}
+                          } place-items-center flex flex-col change-card`}
                           initial={{ visibility: 'hidden', x: 200 }}
                         whileInView={{ visibility: 'visible', x: 0 }}
                         viewport={{ once: true }}

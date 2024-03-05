@@ -46,7 +46,7 @@ function Roles() {
                     roles && roles.map((role: Roles) => {
                         return <motion.div className = { (
                           isDark ? 'bg-gradient-to-br from-slate-400 to-white text-black' : 'bg-gradient-to-br from-slate-400 to-slate-800 text-white'
-                     ) + ` ` + `w-[320px] h-[180px] rounded-xl p-3 shadow-lg shadow-neutral-700` }
+                     ) + ` ` + `w-[320px] h-[180px] rounded-xl p-3 shadow-lg shadow-neutral-700 change-card` }
                             initial = {{visibility: 'hidden', x: 200}}
                             whileInView={{visibility: 'visible', x: 0}}
                             viewport={{once: true}}

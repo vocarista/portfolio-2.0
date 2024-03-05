@@ -32,17 +32,6 @@ function App() {
     }
   }, [])
 
-  useEffect(() => {
-    const handleThemeChange = (e: any) => {
-      setTheme(e.matches);
-    };
-
-    const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-    darkModeMediaQuery.addListener(handleThemeChange);
-    return () => darkModeMediaQuery.removeListener(handleThemeChange);
-  }, []);
-
-
   return (
     <div className= { (isDark ? `bg-transparent` : `bg-white`) + ` App h-full overflow-x-hidden` }>
       <Background />

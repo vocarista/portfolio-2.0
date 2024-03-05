@@ -55,7 +55,7 @@ function Projects() {
                         setSelectedId(project.id)
                         setSelectedProject(project)}} whileHover={{scale: 1.05}} whileTap={{scale: 1}}
                     className = {(isMobile ? `w-[90vw] h-[198px]` : `w-[400px] h-[225px]` ) + ` ` + `flex flex-col hover:outline hover:outline-4 hover:outline-blue-600` + ` ` + (selectedId !== null ? `brightness-reduce` : ``)
-                    + ` ` + `rounded-xl text-left p-3 bg-cover shadow-neutral-700 shadow-lg text-white`} style = {{backgroundImage: `linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.3)), url(${project.thumbnail})`}}
+                    + ` ` + `rounded-xl text-left p-3 bg-cover shadow-neutral-700 shadow-lg text-white change-card`} style = {{backgroundImage: `linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.3)), url(${project.thumbnail})`}}
                     initial = {{visibility: 'hidden', x: 200}}
                     whileInView={{visibility: 'visible', x: 0}}
                     viewport={{once: true}}>

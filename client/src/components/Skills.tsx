@@ -47,7 +47,7 @@ function Skills() {
             <motion.div className = { `skills-container grid gap-10 p-5` + ` ` + (isMobile ? `grid-cols-3` : `grid-cols-5`)} >
                 {
                     skills.map((skill: Skill) => {
-                        return <motion.div className = { `flex flex-col items-center` } 
+                        return <motion.div className = { `flex flex-col items-center change-card` } 
                         initial={{ visibility: 'hidden', y: 200 }}
                             whileInView={{ visibility: 'visible', y: 0}}
                             viewport={{ once: true }}

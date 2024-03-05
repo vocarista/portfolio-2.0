@@ -2,7 +2,7 @@ import { create } from 'zustand'
 
 
 export const useStore = create(set => ({
-    isDark: window.matchMedia('(prefers-color-scheme: dark)').matches,
+    isDark: true,
     isMobile: false,
     showNavList: false,
     base: 'https://api.main.vocarista.com',
