@@ -11,6 +11,7 @@ import About from './components/About'
 import Navigation from './components/Navigation'
 import Footer from './components/Footer'
 import NavList from './components/NavList'
+import Background from './components/Background'
 // import MaintenanceComponent from './components/MaintenanceComponent'
 
 function App() {
@@ -43,7 +44,8 @@ function App() {
 
 
   return (
-    <div className= { (isDark ? `bg-zinc-900` : `bg-white`) + ` App h-full overflow-x-hidden` }>
+    <div className= { (isDark ? `bg-transparent` : `bg-white`) + ` App h-full overflow-x-hidden` }>
+      <Background />
       <Navigation />
       { showNavList && <NavList /> }
       <Splash />
